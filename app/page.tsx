@@ -1,7 +1,7 @@
-import Image from "next/image";
 import { Hero } from "./components/Hero";
 import { HotelList } from "./components/hotels/HotelList";
 import { getHotels } from "./lib/api";
+import WeatherInfo from "./components/weather/WeatherInfo";
 
 export default async function Home() {
   const hotels = await getHotels();
@@ -10,6 +10,7 @@ export default async function Home() {
     <>
       <Hero />
       <HotelList hotels={hotels} />
+      <WeatherInfo />
     </>
   );
 }
