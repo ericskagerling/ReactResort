@@ -8,7 +8,6 @@
   --booking-hover: #c9512b;
   --nav-button: #33ec99;
   --nav-button-hover: #1cb470;
-  --font-heading-1: "Open Sans", sans-serif;
 }
 
 @theme inline {
@@ -25,7 +24,6 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: "Open Sans", sans-serif;
 }
 
 @layer components {
@@ -57,3 +55,5 @@ body {
     @apply text-[12px] font-light;
   }
 }
+
+
