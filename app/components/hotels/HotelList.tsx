@@ -20,9 +20,9 @@ export const HotelList = ({ hotels }: Props) => {
   const totalPages = Math.ceil(hotels.length / ITEMS_PER_PAGE);
 
   return (
-    <section className="w-full">
+    <section id="hotels" className="mt-10">
       <h2 className="p-5 heading-two text-center">Our Hotels</h2>
-      <div className="grid grid-cols-1 gap-4 mt-4">
+      <div className="grid grid-cols-3">
         {visibleHotels.map((hotel) => (
           <HotelCard key={hotel.id} hotel={hotel} />
         ))}

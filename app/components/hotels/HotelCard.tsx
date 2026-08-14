@@ -5,8 +5,11 @@ type Props = {
 };
 
 export const HotelCard = ({ hotel }: Props) => (
-  <div className="border p-4">
-    <h3>{hotel.name}</h3>
-    <p>{hotel.address}</p>
+  <div className="h-[50vh] p-10 flex flex-col justify-between items-center border">
+    <div className="text-center">
+      <h3 className="heading-three">{hotel.name}</h3>
+      <p className="paragraph">{hotel.address}</p>
+    </div>
+    <button className="nav-button button-text">Book</button>
   </div>
 );

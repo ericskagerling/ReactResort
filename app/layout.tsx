@@ -25,7 +25,7 @@ export default function RootLayout({
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className="h-full antialiased scroll-smooth"
+      className="antialiased scroll-smooth"
     >
       <body>
         <AppShell>{children}</AppShell>

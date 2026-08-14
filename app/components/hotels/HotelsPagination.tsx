@@ -1,22 +1,31 @@
-import { Button } from "../Button";
-
 type HotelsPaginationProps = {
-    page: number;
-    totalPages: number;
-    onPageChange: (page: number) => void;
+  page: number;
+  totalPages: number;
+  onPageChange: (page: number) => void;
 };
 
-export const HotelsPagination = ({ page, totalPages, onPageChange }: HotelsPaginationProps) => (
-  <>
-    <Button disabled={page === 1} onClick={() => onPageChange(page - 1)}>
+export const HotelsPagination = ({
+  page,
+  totalPages,
+  onPageChange,
+}: HotelsPaginationProps) => (
+  <div className="w-full p-5 flex justify-center items-center gap-5">
+    <button
+      disabled={page === 1}
+      onClick={() => onPageChange(page - 1)}
+      className="nav-button button-text"
+    >
       Previous
-    </Button>
-    <span>{page} / {totalPages}</span>
-    <Button
+    </button>
+    <span>
+      {page} / {totalPages}
+    </span>
+    <button
       disabled={page === totalPages}
       onClick={() => onPageChange(page + 1)}
+      className="nav-button button-text"
     >
       Next
-    </Button>
-  </>
+    </button>
+  </div>
 );

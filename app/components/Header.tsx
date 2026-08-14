@@ -1,5 +1,5 @@
 import { FaRegUserCircle } from "react-icons/fa";
-import { Logotype } from "../Logotype";
+import { Logotype } from "./Logotype";
 
 type HeaderProps = {
   openModal: () => void;

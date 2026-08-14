@@ -13,12 +13,12 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --booking-primary: var(--booking-primary);
-  --booking-hover: var(--booking-hover);
-  --nav-button: var(--nav-button);
-  --nav-button-hover: var(--vav-button-hover);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-booking-primary: var(--booking-primary);
+  --color-booking-hover: var(--booking-hover);
+  --color-nav-button: var(--nav-button);
+  --color-nav-button-hover: var(--nav-button-hover);
+  --color-font-sans: var(--font-geist-sans);
+  --color-font-mono: var(--font-geist-mono);
 }
 
 body {
@@ -53,6 +53,10 @@ body {
 
   .info-text {
     @apply text-[12px] font-light;
+  }
+
+  .nav-button {
+    @apply px-4 py-2 hover:bg-nav-button-hover border rounded-xl cursor-pointer;
   }
 }
 

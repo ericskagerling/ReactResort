@@ -1,5 +1,4 @@
 import { createCustomer } from "@/app/actions/customerActions";
-import { Button } from "../Button";
 import { MdOutlineCancel } from "react-icons/md";
 
 type CustomerFormProps = {
@@ -34,7 +33,7 @@ export const RegisterModal = ({ open, onClose }: CustomerFormProps) => {
           placeholder="E-mail"
           className="pl-1 border"
         />
-        <Button>Register</Button>
+        <button className="nav-button button-text">Register</button>
       </form>
     </div>
   );
