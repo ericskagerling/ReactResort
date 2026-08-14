@@ -6,7 +6,7 @@ type HeaderProps = {
 };
 
 export const Header = ({ openModal }: HeaderProps) => (
-  <header className="px-10 py-5 flex justify-between items-center border">
+  <header className="h-25 px-10 flex justify-between items-center border">
     <div className="w-20">
       <Logotype />
     </div>
