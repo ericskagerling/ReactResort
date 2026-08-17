@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Hotel } from "../../types";
 
 type Props = {
@@ -10,6 +11,9 @@ export const HotelCard = ({ hotel }: Props) => (
       <h3 className="heading-three">{hotel.name}</h3>
       <p className="paragraph">{hotel.address}</p>
     </div>
-    <button className="nav-button button-text">Book</button>
+    {/*     <button className="nav-button button-text">Book</button> */}
+    <Link href={`/hotels/${hotel.id}`} className="nav-button button-text">
+      Book
+    </Link>
   </div>
 );
