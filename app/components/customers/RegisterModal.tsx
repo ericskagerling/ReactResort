@@ -1,5 +1,5 @@
-import { createCustomer } from "@/app/actions/customerActions";
 import { MdOutlineCancel } from "react-icons/md";
+import { RegisterForm } from "./RegisterForm";
 
 type CustomerFormProps = {
   open: boolean;
@@ -11,30 +11,13 @@ export const RegisterModal = ({ open, onClose }: CustomerFormProps) => {
 
   return (
     <div className="bg-background border absolute right-0">
-      <button onClick={onClose} className="absolute top-4 right-4 cursor-pointer">
-        <MdOutlineCancel className="text-2xl"/>
+      <button
+        onClick={onClose}
+        className="absolute top-4 right-4 cursor-pointer"
+      >
+        <MdOutlineCancel className="text-2xl" />
       </button>
-      <form action={createCustomer} className="p-20 flex flex-col gap-5">
-        <input
-          type="text"
-          name="firstname"
-          placeholder="Firstname"
-          className="pl-1 border"
-        />
-        <input
-          type="text"
-          name="lastname"
-          placeholder="Lastname"
-          className="pl-1 border"
-        />
-        <input
-          type="text"
-          name="email"
-          placeholder="E-mail"
-          className="pl-1 border"
-        />
-        <button className="nav-button button-text">Register</button>
-      </form>
+      <RegisterForm />
     </div>
   );
 };

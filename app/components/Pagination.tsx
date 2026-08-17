@@ -1,14 +1,14 @@
-type HotelsPaginationProps = {
+type PaginationProps = {
   page: number;
   totalPages: number;
   onPageChange: (page: number) => void;
 };
 
-export const HotelsPagination = ({
+export const Pagination = ({
   page,
   totalPages,
   onPageChange,
-}: HotelsPaginationProps) => (
+}: PaginationProps) => (
   <div className="w-full p-5 flex justify-center items-center gap-5">
     <button
       disabled={page === 1}

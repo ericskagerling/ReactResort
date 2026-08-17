@@ -1,5 +1,6 @@
 import { FaRegUserCircle } from "react-icons/fa";
 import { Logotype } from "./Logotype";
+import Link from "next/link";
 
 type HeaderProps = {
   openModal: () => void;
@@ -7,10 +8,11 @@ type HeaderProps = {
 
 export const Header = ({ openModal }: HeaderProps) => (
   <header className="h-25 px-10 flex justify-between items-center border">
-    <div className="w-20">
+    <Link href="/" className="w-20 hover:scale-110 transition-transform duration-300">
       <Logotype />
-    </div>
-    <nav>
+    </Link>
+    <nav className="flex gap-10">
+      <Link href="/bookings" className="nav-button">Bookings</Link>
       <button onClick={openModal} className="text-2xl cursor-pointer">
         <FaRegUserCircle />
       </button>

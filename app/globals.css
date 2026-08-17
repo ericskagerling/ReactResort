@@ -47,8 +47,12 @@ body {
     @apply text-[14px];
   }
 
+  .paragraph-bold {
+    @apply text-[14px] font-semibold;
+  }
+
   .paragraph-sm {
-    @apply text-[9px];
+    @apply text-[10px];
   }
 
   .info-text {
