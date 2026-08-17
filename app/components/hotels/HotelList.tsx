@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Hotel } from "../../types";
 import { HotelCard } from "./HotelCard";
-import { HotelsPagination } from "./HotelsPagination";
+import { Pagination } from "../Pagination";
 
 type Props = {
   hotels: Hotel[];
@@ -27,7 +27,7 @@ export const HotelList = ({ hotels }: Props) => {
           <HotelCard key={hotel.id} hotel={hotel} />
         ))}
       </div>
-      <HotelsPagination
+      <Pagination
         page={page}
         totalPages={totalPages}
         onPageChange={setPage}
