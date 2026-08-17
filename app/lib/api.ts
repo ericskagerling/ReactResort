@@ -12,3 +12,11 @@ export async function getHotels(): Promise<Hotel[]> {
   console.log(data);
   return data;
 }
+export async function getHotelById(id: string): Promise<Hotel> {
+  const response = await fetch(`${BASE_URL}/hotels${id}`);
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch hotel");
+  }
+  return response.json();
+}
