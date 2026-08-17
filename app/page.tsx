@@ -5,7 +5,7 @@ import { hotels } from "./data/hotels";
 import Weather from "./components/weather/Weather";
 
 export default async function Home() {
-  // const hotels = await getHotels();
+  const hotels = await getHotels();
   // avkommentera raden ovan när api:t fungerar, och ta bort import { hotels } from "./data/hotels";
 
   return (
