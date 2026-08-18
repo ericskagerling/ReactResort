@@ -12,7 +12,7 @@ export const HotelCard = ({ hotel }: Props) => (
       <p className="paragraph">{hotel.address}</p>
     </div>
     {/*     <button className="nav-button button-text">Book</button> */}
-    <Link href={`/hotels/${hotel.id}`} className="nav-button button-text">
+    <Link href={`/hotels/${hotel.id}`} className="nav-button">
       Book
     </Link>
   </div>

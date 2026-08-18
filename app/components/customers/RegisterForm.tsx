@@ -1,7 +1,7 @@
-import { createCustomer } from "@/app/actions/customerActions";
+import { createCustomerAction } from "@/app/actions/customerActions";
 
 export const RegisterForm = () =>
-    <form action={createCustomer} className="p-20 flex flex-col gap-5">
+    <form action={createCustomerAction} className="flex flex-col gap-5">
         <input
           type="text"
           name="firstname"
@@ -20,5 +20,5 @@ export const RegisterForm = () =>
           placeholder="E-mail"
           className="pl-1 border"
         />
-        <button className="nav-button button-text">Register</button>
+        <button className="nav-button">Register</button>
       </form>
