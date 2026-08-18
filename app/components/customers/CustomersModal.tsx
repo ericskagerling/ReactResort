@@ -1,16 +1,17 @@
 import { MdOutlineCancel } from "react-icons/md";
 import { RegisterForm } from "./RegisterForm";
+import Link from "next/link";
 
-type CustomerFormProps = {
+type CustomerModalProps = {
   open: boolean;
   onClose: () => void;
 };
 
-export const RegisterModal = ({ open, onClose }: CustomerFormProps) => {
+export const CustomerModal = ({ open, onClose }: CustomerModalProps) => {
   if (!open) return null;
 
   return (
-    <div className="bg-background border absolute right-0">
+    <article className="p-20 flex flex-col justify-center gap-20 bg-background border absolute right-0">
       <button
         onClick={onClose}
         className="absolute top-4 right-4 cursor-pointer"
@@ -18,6 +19,7 @@ export const RegisterModal = ({ open, onClose }: CustomerFormProps) => {
         <MdOutlineCancel className="text-2xl" />
       </button>
       <RegisterForm />
-    </div>
+      <Link href="/customers" className="nav-button">Customers</Link>
+    </article>
   );
 };

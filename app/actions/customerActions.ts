@@ -1,11 +1,13 @@
 "use server";
 
 import { Customer, customerSchema } from "../models/Customer";
-// import { customerService } from "../services/customerService";
+import { createCustomer, getCustomers } from "../services/customerService";
 
-//gör ny fetch till nya API:t
+export const createCustomerAction = async (formData: FormData) => {
+  //om vi vill seeda hårdkodade objekt behövs följande två rader:
+  // const customers = await getCustomers();
+  // if (!customers || customers.length >= 4) return;
 
-export const createCustomer = async (formData: FormData) => {
   const customer = {
     firstName: formData.get("firstname"),
     lastName: formData.get("lastname"),
@@ -14,8 +16,9 @@ export const createCustomer = async (formData: FormData) => {
 
   const result = customerSchema.safeParse(customer);
 
-  if (!result.success)
+  if (!result.success) {
     throw new Error("Invalid customer");
+  }
 
-  // await customerService(result.data);
+  await createCustomer(result.data);
 };

@@ -7,7 +7,7 @@ export const Hero = () => (
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, quas.
       </h3>
     </div>
-    <a href="/#hotels" className="nav-button button-text">
+    <a href="/#hotels" className="nav-button">
     Hotels
     </a>
   </section>
