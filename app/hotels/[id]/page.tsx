@@ -1,7 +1,5 @@
 import { notFound } from "next/navigation";
-import { hotels } from "@/app/data/hotels";
-
-import { getHotelById } from "@/app/lib/hotelService";
+import { getHotels } from "@/app/lib/hotelService";
 
 type Props = {
   params: Promise<{ id: string }>;
@@ -9,8 +7,9 @@ type Props = {
 
 export default async function HotelDetailPage({ params }: Props) {
   const { id } = await params;
-  // const hotel = hotels.find((h) => h.id === Number(id));
-  const hotel = await getHotelById(id);
+  const hotels = await getHotels();
+  
+  const hotel = hotels.find((h) => h.id === Number(id));
 
   if (!hotel) {
     notFound();
