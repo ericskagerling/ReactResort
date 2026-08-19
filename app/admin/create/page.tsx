@@ -1,7 +1,7 @@
 async function createHotel(formData: FormData) {
   "use server";
-  const name = formData.get("hotelName");
-  const address = formData.get("hotelAddress");
+  const name = formData.get("name");
+  const address = formData.get("address");
 
   const response = await fetch("https://aspcode.net/api/db/HotelAPI/hotels", {
     method: "POST",
@@ -26,21 +26,21 @@ export default async function CreateHotel() {
         <h2 className="heading-two mb-10 text-center">Create Hotel</h2>
 
         <form action={createHotel} className="flex flex-col items-center gap-3">
-          <label htmlFor="hotelName">Hotel name:</label>
+          <label htmlFor="name">Hotel name:</label>
           <input
             type="text"
             className="border m-1 rounded-md"
-            id="hotelName"
-            name="hotelName"
+            id="name"
+            name="name"
             required
           />
 
-          <label htmlFor="hotelAddress">Hotel address:</label>
+          <label htmlFor="address">Hotel address:</label>
           <input
             type="text"
             className="border m-1 rounded-md"
-            id="hotelAddress"
-            name="hotelAddress"
+            id="address"
+            name="address"
             required
           />
 

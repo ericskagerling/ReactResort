@@ -50,8 +50,10 @@ export default function WeatherInfo({ latitude, longitude }: WeatherInfoProps) {
       <div>
         {weatherData && (
           <div>
-            <p>{weatherData.current.temperature_2m}°C</p>
-            <p>{weatherCodeDescription(weatherData.current.weather_code)}</p>
+            <p className="paragraph">{weatherData.current.temperature_2m}°C</p>
+            <p className="info-text">
+              {weatherCodeDescription(weatherData.current.weather_code)}
+            </p>
           </div>
         )}
       </div>

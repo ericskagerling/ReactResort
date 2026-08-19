@@ -26,16 +26,17 @@ export default function Weather() {
         <Location onLocation={handleLocation} />
 
         {location && (
-          <div>
+          <div className="flex items-center justify-between gap-4">
             <LocationName
               latitude={location.latitude}
               longitude={location.longitude}
             />
-
-            <WeatherInfo
-              latitude={location.latitude}
-              longitude={location.longitude}
-            />
+            <div className="ml-5">
+              <WeatherInfo
+                latitude={location.latitude}
+                longitude={location.longitude}
+              />
+            </div>
           </div>
         )}
       </div>

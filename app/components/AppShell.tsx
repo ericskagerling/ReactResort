@@ -10,12 +10,14 @@ export const AppShell = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <>
-      <Header openModal={() => setOpen(true)} />
-      <main className="flex-1 bg-background">
-        <CustomerModal open={open} onClose={() => setOpen(false)} />
-        {children}
-      </main>
-      <Footer />
+      <div className="min-h-screen flex flex-col">
+        <Header openModal={() => setOpen(true)} />
+        <main className="flex-1 bg-background">
+          <CustomerModal open={open} onClose={() => setOpen(false)} />
+          {children}
+        </main>
+        <Footer />
+      </div>
     </>
   );
 };

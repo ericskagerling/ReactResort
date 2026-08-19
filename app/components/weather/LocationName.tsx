@@ -31,8 +31,10 @@ export default function LocationName({
   return (
     <>
       <div>
-        <h2>{locationName ?? "Retrieving location..."}</h2>
-        <p>Weather</p>
+        <p className="info-text">Current weather in</p>
+        <h2 className="paragraph">
+          {locationName ?? "Retrieving location..."}
+        </h2>
       </div>
     </>
   );
