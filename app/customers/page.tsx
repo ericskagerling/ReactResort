@@ -1,4 +1,4 @@
-import { getCustomers } from "../services/customerService";
+import { getCustomers } from "../lib/customerService";
 import { CustomersPresentation } from "./CustomersPresentation";
 
 export default async function Customers() {

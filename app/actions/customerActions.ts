@@ -1,7 +1,7 @@
 "use server";
 
-import { Customer, customerSchema } from "../models/Customer";
-import { createCustomer, getCustomers } from "../services/customerService";
+import { customerSchema } from "../types/Customer";
+import { createCustomer } from "../lib/customerService";
 
 export const createCustomerAction = async (formData: FormData) => {
   //om vi vill seeda hårdkodade objekt behövs följande två rader:

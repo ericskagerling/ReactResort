@@ -1,6 +1,6 @@
 import { Hero } from "./components/Hero";
 import { HotelList } from "./components/hotels/HotelList";
-import { getHotels } from "./lib/api";
+import { getHotels } from "./lib/hotelService";
 import { hotels } from "./data/hotels";
 
 export default async function Home() {

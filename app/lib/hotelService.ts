@@ -1,6 +1,6 @@
-import { Hotel } from "../types";
+import { Hotel } from "../types/Hotel";
 
-const BASE_URL = "https://aspcode.net/api/db/HotelAPI/bookings";
+const BASE_URL = "https://aspcode.net/api/db/HotelAPI/hotels";
 
 export async function getHotels(): Promise<Hotel[]> {
   /* const response = await fetch(`${BASE_URL}/hotels`); */

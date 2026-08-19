@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Hotel } from "../../types";
+import { Hotel } from "../../types/Hotel";
 import { HotelCard } from "./HotelCard";
 import { Pagination } from "../Pagination";
 

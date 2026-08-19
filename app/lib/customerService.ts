@@ -1,4 +1,4 @@
-import { Customer } from "../models/Customer";
+import { Customer } from "../types/Customer";
 
 const BASE_URL = "https://aspcode.net/api/db/HotelAPI/customers";
 

@@ -1,4 +1,4 @@
-import { Hotel } from "../types";
+import { Hotel } from "../types/Hotel";
 
 export const hotels: Hotel[] = [
   {

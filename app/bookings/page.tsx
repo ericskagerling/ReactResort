@@ -1,4 +1,4 @@
-import { getBookings } from "../services/bookingsService";
+import { getBookings } from "../lib/bookingsService";
 import { BookingPresentation } from "./BookingPresentation";
 
 export default async function Bookings() {

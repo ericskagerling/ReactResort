@@ -5,7 +5,6 @@ export type Booking = {
     hotelId: number;
     customerId: number;
     guests: number;
-    id: number;
   };
   id: number;
 };
