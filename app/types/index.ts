@@ -1,6 +1,15 @@
 export type Hotel = {
-  id: number;
-  name: string;
-  address: string;
-  bookingCount: number;
+  id: string;
+  createdAt: string;
+  updatedAt: string;
+  database: string;
+  resource: string;
+  data: {
+    id?: string | number;
+    name?: string;
+    address?: string;
+    hotelName?: string;
+    hotelAddress?: string;
+    bookingCount?: number;
+  };
 };
