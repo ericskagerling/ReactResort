@@ -1,4 +1,3 @@
-import { notFound } from "next/navigation";
 import { getHotels } from "@/app/lib/hotelService";
 
 type Props = {
@@ -9,10 +8,10 @@ export default async function HotelDetailPage({ params }: Props) {
   const { id } = await params;
   const hotels = await getHotels();
   
-  const hotel = hotels.find((h) => h.id === Number(id));
+  const hotel = hotels.find((h) => String(h.id) === id);
 
   if (!hotel) {
-    notFound();
+    return <>Hotel not found</>
   }
 
   return (
