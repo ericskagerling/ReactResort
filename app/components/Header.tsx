@@ -8,7 +8,7 @@ type HeaderProps = {
 
 export const Header = ({ openModal }: HeaderProps) => (
   <header className="h-25 px-10 flex justify-between items-center border">
-    <Link href="/" className="w-20 hover:scale-110 transition-transform duration-300">
+    <Link href="/" className="w-20 hover:scale-105 transition-transform duration-300">
       <Logotype />
     </Link>
     <nav className="flex gap-10">

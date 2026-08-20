@@ -1,8 +1,8 @@
 const BASE_URL = "https://aspcode.net/api/db/HotelAPI/bookings";
 
-export const getBookings = async () => {
+export const getBookings = async (limit: number, offset: number) => {
   try {
-    const response = await fetch(BASE_URL,
+    const response = await fetch(`${BASE_URL}?limit=${limit}&offset=${offset}`,
       {
         headers: {
           "X-API-KEY": process.env.HOTEL_API_KEY!,
