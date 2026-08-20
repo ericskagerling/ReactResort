@@ -1,5 +1,6 @@
 import { getHotels } from "@/app/lib/hotelService";
-
+import { BookingCalender } from "@/app/components/bookings/BookingCalender";
+import { BookingDetails } from "@/app/components/bookings/BookingDetails";
 type Props = {
   params: Promise<{ id: string }>;
 };
@@ -7,11 +8,11 @@ type Props = {
 export default async function HotelDetailPage({ params }: Props) {
   const { id } = await params;
   const hotels = await getHotels();
-  
+
   const hotel = hotels.find((h) => String(h.id) === id);
 
   if (!hotel) {
-    return <>Hotel not found</>
+    return <>Hotel not found</>;
   }
 
   return (
@@ -22,6 +23,8 @@ export default async function HotelDetailPage({ params }: Props) {
           <p className="paragraph">{hotel.data.address}</p>
         </div>
       </div>
+      <BookingCalender />
+      <BookingDetails hotel={hotel} />
     </section>
   );
 }
