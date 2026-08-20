@@ -15,8 +15,8 @@ export default async function Bookings({ searchParams }: BookingsProps) {
 
   const [bookings, customers, hotels] = await Promise.all([
     getBookings(limit, offset),
-    getCustomers(limit, offset),
-    getHotels(limit, offset),
+    getCustomers(),
+    getHotels(),
   ]);
 
   if (!bookings) return;

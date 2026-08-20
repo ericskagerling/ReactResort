@@ -2,9 +2,9 @@ import { Customer } from "../types/Customer";
 
 const BASE_URL = "https://aspcode.net/api/db/HotelAPI/customers";
 
-export const getCustomers = async (limit: number, offset: number) => {
+export const getCustomers = async (limit?: number, offset?: number) => {
   try {
-    const response = await fetch(`${BASE_URL}?limit=${limit}&offset=${offset}`,
+    const response = await fetch(`${BASE_URL}`,
       {
         headers: {
           "X-API-KEY": process.env.HOTEL_API_KEY!,
@@ -35,3 +35,5 @@ export const createCustomer = async (customer: Customer) => {
     console.error(err);
   }
 };
+
+//?limit=${limit}&offset=${offset}
