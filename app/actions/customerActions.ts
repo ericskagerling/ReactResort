@@ -20,5 +20,5 @@ export const createCustomerAction = async (formData: FormData) => {
     throw new Error("Invalid customer");
   }
 
-  await createCustomer(result.data);
+  // await createCustomer(result.data);
 };

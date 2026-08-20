@@ -18,8 +18,8 @@ export default async function Home({ searchParams }: HomeProps) {
 
   if (!hotels) return;
 
-  seed();
-  seedCustomer();
+  await seed();
+  await seedCustomer();
   return (
     <>
       <Hero />
