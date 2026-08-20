@@ -1,17 +1,35 @@
 import { Hero } from "./components/Hero";
 import { HotelList } from "./components/hotels/HotelList";
+import { Pagination } from "./components/Pagination";
 import { getHotels } from "./lib/hotelService";
-import { hotels } from "./data/hotels";
 import { seed } from "./actions/seedHotel";
+import { getPagination } from "./utils/pagination";
 
-export default async function Home() {
-  const hotels = await getHotels();
-  // avkommentera raden ovan när api:t fungerar, och ta bort import { hotels } from "./data/hotels";
+type HomeProps = {
+  searchParams: Promise<{ page: string }>;
+};
+
+export default async function Home({ searchParams }: HomeProps) {
+  const { page: pageParam } = await searchParams;
+  const { page, limit, offset } = getPagination(pageParam, 6);
+
+  const hotels = await getHotels(limit, offset);
+
+  if (!hotels) return;
+
   seed();
+
   return (
     <>
       <Hero />
       <HotelList hotels={hotels} />
+      <Pagination
+        rowsTotal={hotels.length}
+        page={page}
+        route="/"
+        limit={limit}
+        scroll={false}
+      />
     </>
   );
 }

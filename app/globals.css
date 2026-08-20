@@ -2,7 +2,7 @@
 
 :root {
   --background: #35302d;
-  --foreground: #ffffff;
+  --foreground: #ebebeb;
   --light-grey: #6d6661;
   --booking-primary: #ec5d30;
   --booking-hover: #c9512b;
@@ -28,15 +28,15 @@ body {
 
 @layer components {
   .heading-one {
-    @apply text-[48px] font-bold;
+    @apply text-[48px] font-extralight tracking-[1.5rem];
   }
 
   .heading-two {
-    @apply text-[36px] font-bold;
+    @apply text-[36px] font-semibold;
   }
 
   .heading-three {
-    @apply text-[24px] font-bold;
+    @apply text-[24px] font-semibold;
   }
 
   .paragraph {
