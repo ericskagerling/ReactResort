@@ -4,19 +4,19 @@ const BASE_URL = "https://aspcode.net/api/db/HotelAPI/customers";
 
 export const getCustomers = async (limit?: number, offset?: number) => {
   try {
-    const response = await fetch(`${BASE_URL}`,
-      {
-        headers: {
-          "X-API-KEY": process.env.HOTEL_API_KEY!,
-        },
+    const response = await fetch(`${BASE_URL}`, {
+      headers: {
+        "X-API-KEY": process.env.HOTEL_API_KEY!,
       },
-    );
+    });
 
     if (!response.ok) throw new Error("Failed to fetch customers");
 
-    return response.json();
-  } catch (err) {
-    console.error(err);
+    const data = await response.json();
+
+    return data;
+  } catch (error) {
+    console.error(error);
   }
 };
 

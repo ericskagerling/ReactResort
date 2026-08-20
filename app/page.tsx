@@ -4,6 +4,7 @@ import { Pagination } from "./components/Pagination";
 import { getHotels } from "./lib/hotelService";
 import { seed } from "./actions/seedHotel";
 import { getPagination } from "./utils/pagination";
+import { seedCustomer } from "./actions/seedCustomer";
 
 type HomeProps = {
   searchParams: Promise<{ page: string }>;
@@ -18,7 +19,7 @@ export default async function Home({ searchParams }: HomeProps) {
   if (!hotels) return;
 
   seed();
-
+  seedCustomer();
   return (
     <>
       <Hero />

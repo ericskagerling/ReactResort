@@ -7,12 +7,7 @@ const seedHotel = {
 export async function seed() {
   const hotels = await getHotels();
 
-  const hotelExists = hotels.some((hotel) => {
-    return hotel.data.name === seedHotel.name;
-  });
-  if (hotelExists) {
-    return;
+  if (!hotels.some((hotel) => hotel.data.name === seedHotel.name)) {
+    await createHotel(seedHotel.name, seedHotel.address);
   }
-
-  await createHotel(seedHotel.name, seedHotel.address);
 }
