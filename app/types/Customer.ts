@@ -6,7 +6,7 @@ export type Customer = {
     lastName: string;
     email: string;
   };
-  id: string;
+  id?: string;
 };
 
 export const customerSchema = z.object({
