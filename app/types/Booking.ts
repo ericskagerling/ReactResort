@@ -3,7 +3,7 @@ export type Booking = {
     checkInDate: string;
     checkOutDate: string;
     hotelId: number;
-    customerId: number;
+    customerId: string;
     guests: number;
   };
   id: number;
