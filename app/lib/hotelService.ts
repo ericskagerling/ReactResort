@@ -17,3 +17,24 @@ export async function getHotels(): Promise<Hotel[]> {
   const data = await response.json();
   return data;
 }
+
+//Create hotel
+export async function createHotel(name: string, address: string) {
+  const response = await fetch(BASE_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-API-Key": process.env.HOTEL_API_KEY!,
+    },
+    body: JSON.stringify({
+      name,
+      address,
+    }),
+  });
+
+  if (!response.ok) {
+    throw new Error("Failed to create hotel");
+  }
+
+  return response.json();
+}
