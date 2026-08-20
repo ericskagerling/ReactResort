@@ -6,18 +6,21 @@ export const RegisterForm = () =>
           type="text"
           name="firstname"
           placeholder="Firstname"
+          required
           className="pl-1 border"
         />
         <input
           type="text"
           name="lastname"
           placeholder="Lastname"
+          required
           className="pl-1 border"
         />
         <input
-          type="text"
+          type="email"
           name="email"
           placeholder="E-mail"
+          required
           className="pl-1 border"
         />
         <button className="nav-button">Register</button>

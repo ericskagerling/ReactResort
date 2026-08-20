@@ -1,3 +1,4 @@
+import { BookingForm } from "@/app/components/bookings/BookingForm";
 import { getHotels } from "@/app/lib/hotelService";
 
 type Props = {
@@ -7,21 +8,22 @@ type Props = {
 export default async function HotelDetailPage({ params }: Props) {
   const { id } = await params;
   const hotels = await getHotels();
-  
+
   const hotel = hotels.find((h) => String(h.id) === id);
 
   if (!hotel) {
-    return <>Hotel not found</>
+    return <>Hotel not found</>;
   }
 
   return (
-    <section className="mt-10">
-      <div className="h-[50vh] p-10 flex flex-col justify-between items-center border">
+    <section className="mt-10 flex">
+      <div className="h-[50vh] p-10 flex-1 flex flex-col justify-between items-center border">
         <div className="text-center">
           <h3 className="heading-three">{hotel.data.name}</h3>
           <p className="paragraph">{hotel.data.address}</p>
         </div>
       </div>
+      <BookingForm hotelId={id}/>
     </section>
   );
 }
