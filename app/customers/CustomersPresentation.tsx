@@ -1,4 +1,4 @@
-import { Customer } from "../models/Customer";
+import { Customer } from "../types/Customer";
 
 type CustomersPresentationProps = {
   customers: Customer[];
