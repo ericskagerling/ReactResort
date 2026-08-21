@@ -5,6 +5,7 @@ import { getHotels } from "./lib/hotelService";
 import { seed } from "./actions/seedHotel";
 import { getPagination } from "./utils/pagination";
 import { seedCustomer } from "./actions/seedCustomer";
+import { seedBooking } from "./actions/seedBooking";
 
 type HomeProps = {
   searchParams: Promise<{ page: string }>;
@@ -18,8 +19,11 @@ export default async function Home({ searchParams }: HomeProps) {
 
   if (!hotels) return;
 
+  //Seeding
   await seed();
   await seedCustomer();
+  await seedBooking();
+
   return (
     <>
       <Hero />
