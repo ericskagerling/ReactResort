@@ -19,6 +19,8 @@ export const getCustomers = async (
   return data;
 };
 
+//?limit=${limit}&offset=${offset}
+
 export const createCustomer = async (customer: Customer) => {
   const response = await fetch(BASE_URL, {
     method: "POST",
@@ -34,5 +36,3 @@ export const createCustomer = async (customer: Customer) => {
     throw new Error(`Failed to create customer: ${response.status} ${error}`);
   }
 };
-
-//?limit=${limit}&offset=${offset}

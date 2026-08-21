@@ -1,3 +1,4 @@
+import { BookingForm } from "@/app/components/bookings/BookingForm";
 import { getHotels } from "@/app/lib/hotelService";
 import { BookingCalender } from "@/app/components/bookings/BookingCalender";
 import { BookingDetails } from "@/app/components/bookings/BookingDetails";
@@ -16,8 +17,8 @@ export default async function HotelDetailPage({ params }: Props) {
   }
 
   return (
-    <section className="mt-10">
-      <div className="h-[50vh] p-10 flex flex-col justify-between items-center border">
+    <section className="mt-10 flex">
+      <div className="h-[50vh] p-10 flex-1 flex flex-col justify-between items-center border">
         <div className="text-center">
           <h3 className="heading-three">{hotel.data.name}</h3>
           <p className="paragraph">{hotel.data.address}</p>
@@ -25,6 +26,7 @@ export default async function HotelDetailPage({ params }: Props) {
       </div>
       <BookingCalender />
       <BookingDetails hotel={hotel} />
+      <BookingForm hotelId={id}/>
     </section>
   );
 }
