@@ -1,11 +1,11 @@
-import { Hotel } from "../types/Hotel";
+import { HotelResponse } from "../types/HotelResponse";
 
 const BASE_URL = "https://aspcode.net/api/db/HotelAPI/hotels";
 
 export async function getHotels(
   limit?: number,
   offset?: number,
-): Promise<Hotel[]> {
+): Promise<HotelResponse[]> {
   const response = await fetch(`${BASE_URL}`, {
     headers: {
       "X-API-KEY": process.env.HOTEL_API_KEY!,

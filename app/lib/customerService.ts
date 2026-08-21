@@ -1,11 +1,12 @@
 import { Customer } from "../types/Customer";
+import { CustomerResponse } from "../types/CustomerResponse";
 
 const BASE_URL = "https://aspcode.net/api/db/HotelAPI/customers";
 
 export const getCustomers = async (
   limit?: number,
   offset?: number,
-): Promise<Customer[]> => {
+): Promise<CustomerResponse[]> => {
   const response = await fetch(`${BASE_URL}`, {
     headers: {
       "X-API-KEY": process.env.HOTEL_API_KEY!,

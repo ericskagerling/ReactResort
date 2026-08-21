@@ -1,12 +1,9 @@
 import z from "zod";
 
 export type Customer = {
-  data: {
-    firstName: string;
-    lastName: string;
-    email: string;
-  };
-  id?: string;
+  firstName: string;
+  lastName: string;
+  email: string;
 };
 
 export const customerSchema = z.object({
