@@ -1,5 +1,6 @@
 "use server";
 
+import { createBooking } from "../lib/bookingsService";
 import { bookingSchema } from "../types/Booking";
 
 export const createBookingAction = async (formData: FormData) => {
@@ -18,5 +19,5 @@ export const createBookingAction = async (formData: FormData) => {
     return;
   }
 
-  console.log(result.data);
+  await createBooking(result.data);
 };

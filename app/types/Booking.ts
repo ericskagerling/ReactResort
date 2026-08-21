@@ -1,14 +1,11 @@
 import z from "zod";
 
 export type Booking = {
-  data: {
     checkInDate: string;
     checkOutDate: string;
     hotelId: string;
     customerId: string;
     guests: number;
-  };
-  id: string;
 };
 
 export const bookingSchema = z

@@ -7,7 +7,6 @@ type BookingFormProps = {
 
 export const BookingForm = async ({ hotelId }: BookingFormProps) => {
   const customers = await getCustomers();
-    console.log("hotelId prop:", hotelId);
 
   return (
     <form

@@ -1,8 +1,9 @@
 import { Booking } from "../types/Booking";
+import { BookingResponse } from "../types/BookingResponse";
 
 const BASE_URL = "https://aspcode.net/api/db/HotelAPI/bookings";
 
-export const getBookings = async (limit: number, offset: number) => {
+export const getBookings = async (limit: number, offset: number): Promise<BookingResponse[]> => {
   try {
     const response = await fetch(`${BASE_URL}`, {
       headers: {
@@ -16,6 +17,8 @@ export const getBookings = async (limit: number, offset: number) => {
   } catch (error) {
     console.error(error);
   }
+
+  return [];
 };
 
 //?limit=${limit}&offset=${offset}
