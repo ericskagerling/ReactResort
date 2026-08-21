@@ -1,16 +1,25 @@
+"use client";
+
 import { createBookingAction } from "@/app/actions/bookingActions";
-import { getCustomers } from "@/app/lib/customerService";
+import { useActionState } from "react";
+import { CustomerResponse } from "@/app/types/CustomerResponse";
 
 type BookingFormProps = {
   hotelId: string;
+  customers: CustomerResponse[];
 };
 
-export const BookingForm = async ({ hotelId }: BookingFormProps) => {
-  const customers = await getCustomers();
+const initialState = {
+  success: false,
+  error: "",
+};
+
+export const BookingForm = ({ hotelId, customers }: BookingFormProps) => {
+  const [state, formAction] = useActionState(createBookingAction, initialState);
 
   return (
     <form
-      action={createBookingAction}
+      action={formAction}
       className="p-20 flex-1 flex flex-col gap-5 border"
     >
       <input type="hidden" name="hotelId" value={hotelId} />
@@ -29,6 +38,7 @@ export const BookingForm = async ({ hotelId }: BookingFormProps) => {
           </option>
         ))}
       </select>
+      ;
       <div className="flex justify-between">
         <label>Checkin date:</label>
         <input
@@ -47,7 +57,6 @@ export const BookingForm = async ({ hotelId }: BookingFormProps) => {
           className="px-1 border cursor-pointer"
         />
       </div>
-      
       <input
         type="number"
         name="guests"
@@ -56,6 +65,14 @@ export const BookingForm = async ({ hotelId }: BookingFormProps) => {
         className="px-1 border cursor-pointer"
       />
       <button className="nav-button">Book</button>
+      <div className="paragraph-bold text-center">
+        {state.error && <p className="text-red-500">{state.error}</p>}
+        {state.success && (
+          <p>
+            You can relax, <span className="text-nav-button">hotel is booked!</span>
+          </p>
+        )}
+      </div>
     </form>
   );
 };

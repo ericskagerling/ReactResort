@@ -2,8 +2,20 @@
 
 import { createBooking } from "../lib/bookingsService";
 import { bookingSchema } from "../types/Booking";
+import { isHotelAvailable } from "../utils/hotelAvailability";
 
-export const createBookingAction = async (formData: FormData) => {
+type BookingState = {
+  success: boolean;
+  error?: string;
+  // errors: {
+  //   checkInDate?: string[];
+  //   checkOutDate?: string[];
+  //   customerId?: string[];
+  //   guests?: string[];
+  // }
+}
+
+export const createBookingAction = async (_previousState: BookingState, formData: FormData) => {
   const booking = {
     checkInDate: formData.get("checkInDate"),
     checkOutDate: formData.get("checkOutDate"),
@@ -15,9 +27,24 @@ export const createBookingAction = async (formData: FormData) => {
   const result = bookingSchema.safeParse(booking);
 
   if (!result.success) {
-    console.error(result.error.issues);
-    return;
+    return {
+      success: false,
+      error: "test",
+      errors: result.error.flatten().fieldErrors,
+    }
   }
 
-  await createBooking(result.data);
+  const hotelAvailable = await isHotelAvailable(result.data);
+
+  if (!hotelAvailable.success) {
+    return hotelAvailable;
+  }
+
+  console.log(result.data);
+  
+  // await createBooking(result.data);
+
+  return {
+    success: true,
+  }
 };
