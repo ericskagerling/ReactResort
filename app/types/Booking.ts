@@ -23,7 +23,7 @@ export const bookingSchema = z
   .refine(
     (booking) => booking.checkInDate >= new Date().toISOString().split("T")[0],
     {
-      message: "Checkin can not be in the past",
+      message: "Checkin can not happen in the past",
       path: ["checkInDate"],
     },
   );

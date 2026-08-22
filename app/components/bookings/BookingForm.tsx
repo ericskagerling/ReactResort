@@ -1,17 +1,20 @@
 "use client";
 
-import { createBookingAction } from "@/app/actions/bookingActions";
+import {
+  BookingState,
+  createBookingAction,
+} from "@/app/actions/bookingActions";
 import { useActionState } from "react";
 import { CustomerResponse } from "@/app/types/CustomerResponse";
+import { BookingStatePresentation } from "./BookingStatePresentation";
 
 type BookingFormProps = {
   hotelId: string;
   customers: CustomerResponse[];
 };
 
-const initialState = {
+const initialState: BookingState = {
   success: false,
-  error: "",
 };
 
 export const BookingForm = ({ hotelId, customers }: BookingFormProps) => {
@@ -27,7 +30,7 @@ export const BookingForm = ({ hotelId, customers }: BookingFormProps) => {
         name="customerId"
         defaultValue=""
         required
-        className="border cursor-pointer"
+        className="px-1 border rounded-l-xl cursor-pointer"
       >
         <option value="" disabled>
           Select guest
@@ -38,23 +41,22 @@ export const BookingForm = ({ hotelId, customers }: BookingFormProps) => {
           </option>
         ))}
       </select>
-      ;
-      <div className="flex justify-between">
+      <div className={`flex justify-between ${state.errors?.checkInDate && "text-red-300"}`}>
         <label>Checkin date:</label>
         <input
           type="date"
           name="checkInDate"
           required
-          className="px-1 border cursor-pointer"
+          className="px-2 border rounded-l-xl cursor-text"
         />
       </div>
-      <div className="flex justify-between">
+      <div className={`flex justify-between ${state.errors?.checkOutDate && "text-red-300"}`}>
         <label>Checkout date:</label>
         <input
           type="date"
           name="checkOutDate"
           required
-          className="px-1 border cursor-pointer"
+          className="px-2 border rounded-l-xl cursor-text"
         />
       </div>
       <input
@@ -62,16 +64,11 @@ export const BookingForm = ({ hotelId, customers }: BookingFormProps) => {
         name="guests"
         placeholder="Number of guests"
         required
-        className="px-1 border cursor-pointer"
+        className="px-2 border rounded-l-xl cursor-text"
       />
-      <button className="nav-button">Book</button>
+      <button className="booking-button">Book</button>
       <div className="paragraph-bold text-center">
-        {state.error && <p className="text-red-500">{state.error}</p>}
-        {state.success && (
-          <p>
-            You can relax, <span className="text-nav-button">hotel is booked!</span>
-          </p>
-        )}
+        <BookingStatePresentation state={state} />
       </div>
     </form>
   );

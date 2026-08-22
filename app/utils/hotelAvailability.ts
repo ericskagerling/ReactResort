@@ -1,6 +1,5 @@
 import { getBookings } from "../lib/bookingsService";
 import { Booking } from "../types/Booking";
-import { Hotel } from "../types/Hotel";
 
 export const isHotelAvailable = async (newBooking: Booking) => {
   const bookings = await getBookings();
@@ -15,7 +14,7 @@ export const isHotelAvailable = async (newBooking: Booking) => {
   if (matchedBookings.length >= 3) {
     return {
       success: false,
-      error: "The hotel is fully booked",
+      error: "Hotel is fully booked, choose another date",
     };
   }
 

@@ -1,8 +1,9 @@
+import { HotelResponse } from "@/app/types/HotelResponse";
 import { Hotel } from "../../types/Hotel";
 import { HotelCard } from "./HotelCard";
 
 type Props = {
-  hotels: Hotel[];
+  hotels: HotelResponse[];
 };
 
 export const HotelList = async ({ hotels }: Props) => {

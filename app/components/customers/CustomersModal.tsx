@@ -16,7 +16,7 @@ export const CustomerModal = ({ open, onClose }: CustomerModalProps) => {
         onClick={onClose}
         className="absolute top-4 right-4 cursor-pointer"
       >
-        <MdOutlineCancel className="text-2xl" />
+        <MdOutlineCancel className="text-2xl hover:scale-110 transition-transform duration-300" />
       </button>
       <RegisterForm />
       <Link href="/customers" className="nav-button">Customers</Link>

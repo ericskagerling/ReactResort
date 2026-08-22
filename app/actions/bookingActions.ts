@@ -4,18 +4,21 @@ import { createBooking } from "../lib/bookingsService";
 import { bookingSchema } from "../types/Booking";
 import { isHotelAvailable } from "../utils/hotelAvailability";
 
-type BookingState = {
+export type BookingState = {
   success: boolean;
   error?: string;
-  // errors: {
-  //   checkInDate?: string[];
-  //   checkOutDate?: string[];
-  //   customerId?: string[];
-  //   guests?: string[];
-  // }
-}
+  errors?: {
+    checkInDate?: string[];
+    checkOutDate?: string[];
+    customerId?: string[];
+    guests?: string[];
+  };
+};
 
-export const createBookingAction = async (_previousState: BookingState, formData: FormData) => {
+export const createBookingAction = async (
+  _previousState: BookingState,
+  formData: FormData,
+): Promise<BookingState> => {
   const booking = {
     checkInDate: formData.get("checkInDate"),
     checkOutDate: formData.get("checkOutDate"),
@@ -29,9 +32,8 @@ export const createBookingAction = async (_previousState: BookingState, formData
   if (!result.success) {
     return {
       success: false,
-      error: "test",
       errors: result.error.flatten().fieldErrors,
-    }
+    };
   }
 
   const hotelAvailable = await isHotelAvailable(result.data);
@@ -40,11 +42,9 @@ export const createBookingAction = async (_previousState: BookingState, formData
     return hotelAvailable;
   }
 
-  console.log(result.data);
-  
-  // await createBooking(result.data);
+  await createBooking(result.data);
 
   return {
     success: true,
-  }
+  };
 };
