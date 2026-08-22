@@ -13,7 +13,7 @@ export const Header = ({ openModal }: HeaderProps) => (
     </Link>
     <nav className="flex gap-10">
       <Link href="/bookings" className="nav-button">Bookings</Link>
-      <button onClick={openModal} className="text-2xl cursor-pointer">
+      <button onClick={openModal} className="text-2xl cursor-pointer hover:scale-110 transition-transform duration-300">
         <FaRegUserCircle />
       </button>
     </nav>

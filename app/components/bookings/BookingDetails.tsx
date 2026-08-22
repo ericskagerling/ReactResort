@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Hotel } from "../../types/Hotel";
-type Props = { hotel: Hotel };
+import { HotelResponse } from "@/app/types/HotelResponse";
+type Props = { hotel: HotelResponse };
 
 export const BookingDetails = ({ hotel }: Props) => {
   const [guests, setGuests] = useState(1);

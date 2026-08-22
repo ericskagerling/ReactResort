@@ -56,8 +56,15 @@ body {
   }
 
   .nav-button {
-    @apply px-4 py-2 font-bold text-center hover:bg-nav-button-hover border rounded-xl cursor-pointer;
+    @apply px-4 py-2 font-bold text-center hover:bg-nav-button-hover transition-colors duration-300 border rounded-xl cursor-pointer;
+  }
+
+  .booking-button {
+    @apply px-4 py-2 font-bold text-center hover:bg-booking-hover transition-colors duration-300 border rounded-xl cursor-pointer;
   }
 }
 
-
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  cursor: pointer;
+}

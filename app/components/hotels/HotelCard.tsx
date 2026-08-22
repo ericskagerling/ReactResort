@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { Hotel } from "../../types/Hotel";
+import { HotelResponse } from "@/app/types/HotelResponse";
 
 type Props = {
-  hotel: Hotel;
+  hotel: HotelResponse;
 };
 
 export const HotelCard = ({ hotel }: Props) => (
@@ -13,7 +14,7 @@ export const HotelCard = ({ hotel }: Props) => (
     </div>
     {/*     <button className="nav-button button-text">Book</button> */}
     <Link href={`/hotels/${hotel.id}`} className="nav-button">
-      Book
+      View
     </Link>
   </div>
 );

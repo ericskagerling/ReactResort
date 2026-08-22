@@ -1,14 +1,18 @@
-import { BookingForm } from "@/app/components/bookings/BookingForm";
 import { getHotels } from "@/app/lib/hotelService";
 import { BookingCalender } from "@/app/components/bookings/BookingCalender";
 import { BookingDetails } from "@/app/components/bookings/BookingDetails";
+import { getCustomers } from "@/app/lib/customerService";
+import { BookingForm } from "@/app/components/bookings/BookingForm";
+
 type Props = {
   params: Promise<{ id: string }>;
 };
 
 export default async function HotelDetailPage({ params }: Props) {
   const { id } = await params;
+  
   const hotels = await getHotels();
+  const customers = await getCustomers();
 
   const hotel = hotels.find((h) => String(h.id) === id);
 
@@ -26,7 +30,7 @@ export default async function HotelDetailPage({ params }: Props) {
       </div>
       <BookingCalender />
       <BookingDetails hotel={hotel} />
-      <BookingForm hotelId={id}/>
+      <BookingForm hotelId={id} customers={customers}/>
     </section>
   );
 }
